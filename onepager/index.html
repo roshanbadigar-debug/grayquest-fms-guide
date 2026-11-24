@@ -28,6 +28,9 @@ a{color:#3E54CE}a:hover{color:#11142C}
 .marquee{display:flex;gap:14px;width:max-content;animation:gqMarquee 26s linear infinite}
 .shim{background:linear-gradient(90deg,#E7EBF7 0,#F5F7FC 50%,#E7EBF7 100%);background-size:400px 100%;animation:gqShimmer 1.8s linear infinite}
 .card{transition:transform .25s ease, box-shadow .25s ease}
+.pick{transition:transform .2s ease, box-shadow .2s ease}.pick:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.3)}
+@keyframes gqGlow{0%,100%{box-shadow:0 0 0 0 rgba(245,216,99,.55)}50%{box-shadow:0 0 0 10px rgba(245,216,99,0)}}
+.pickhl{animation:gqGlow 2.2s ease-in-out infinite}
 .card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(17,20,44,.12)}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -85,7 +88,7 @@ a{color:#3E54CE}a:hover{color:#11142C}
 .card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(17,20,44,.16)}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.seg{opacity:1}.m{background:#1C7C54;color:#FFFFFF}}
 </style>
-<style>html{scroll-behavior:smooth}html,body{margin:0;background:#11142C}#arc,#rapid,#emi{margin:0 auto;scroll-margin-top:60px}#rapid,#emi{margin-top:48px}#emi{margin-bottom:48px}</style>
+<style>html{scroll-behavior:smooth}html,body{margin:0;background:#11142C}body>div{margin:0 auto}#arc,#rapid,#emi{scroll-margin-top:60px}#rapid,#emi{margin-top:48px}#emi{margin-bottom:48px}#cycle{scroll-margin-top:70px}</style>
 </head><body>
 <nav aria-label="Sections" style="position:sticky;top:0;z-index:50;background:rgba(17,20,44,.92);backdrop-filter:blur(8px);display:flex;justify-content:center;gap:10px;padding:12px;font-family:'DM Sans',system-ui,sans-serif">
 <a href="#arc" style="color:#11142C;background:#F5D863;text-decoration:none;font-weight:800;font-size:14px;padding:9px 18px;border-radius:999px">ARC · Fee Management</a>
@@ -114,11 +117,18 @@ a{color:#3E54CE}a:hover{color:#11142C}
 <div class="up" style="font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #F5D863">HDFC Collectnow · Razorpay institutes</div>
 <h1 class="up d1" style="margin: 0; font-size: 62px; line-height: 1.02; font-weight: 800; color: #FFFFFF; letter-spacing: -.02em">Every fee.<br>Every campus.<br><span style="color: #8E9BEA">One dashboard.</span></h1>
 <p class="up d2" style="margin: 0; font-size: 19px; line-height: 1.5; color: #C8CDEA; max-width: 470px">Set up fees, collect online and offline, track every transaction in real time and report in a click — for one institute or a whole group.</p>
-<div class="up d3" style="display: flex; gap: 10px; flex-wrap: wrap">
-<span style="font-size: 14px; color: #FFFFFF; border: 1px solid rgba(255,255,255,.25); padding: 8px 14px; border-radius: 999px">Real-time tracking</span>
-<span style="font-size: 14px; color: #FFFFFF; border: 1px solid rgba(255,255,255,.25); padding: 8px 14px; border-radius: 999px">Multi-campus</span>
-<span style="font-size: 14px; color: #FFFFFF; border: 1px solid rgba(255,255,255,.25); padding: 8px 14px; border-radius: 999px">Settlement reports</span>
-<span style="font-size: 14px; color: #11142C; background: #F5D863; padding: 8px 14px; border-radius: 999px; font-weight: 700">With HDFC Collectnow</span>
+<div class="up d3" style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #C8CDEA">How do your parents pay?</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 520px">
+<a class="pick" href="#cycle" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.28); border-radius: 16px; padding: 14px 16px">
+<span style="display: flex; justify-content: space-between; align-items: center; font-size: 22px; font-weight: 800; color: #FFFFFF">PG <span aria-hidden="true" style="font-size: 18px">→</span></span>
+<span style="font-size: 13px; color: #C8CDEA">Payment gateway · UPI, cards, net banking</span>
+</a>
+<a class="pick pickhl" href="#emi" style="display: flex; flex-direction: column; gap: 4px; text-decoration: none; background: #F5D863; border-radius: 16px; padding: 14px 16px">
+<span style="display: flex; justify-content: space-between; align-items: center; font-size: 22px; font-weight: 800; color: #11142C">EMI &amp; AD <span aria-hidden="true" style="font-size: 18px">→</span></span>
+<span style="font-size: 13px; color: #3E3A28">Zero-cost EMI &amp; Auto-debit · only from GQ</span>
+</a>
+</div>
 </div>
 </div>
 
@@ -171,7 +181,7 @@ a{color:#3E54CE}a:hover{color:#11142C}
 </div>
 
 <!-- CYCLE -->
-<div style="flex-shrink: 0; padding: 56px 72px 40px 72px; display: flex; flex-direction: column; gap: 30px">
+<div id="cycle" style="flex-shrink: 0; scroll-margin-top: 70px; padding: 56px 72px 40px 72px; display: flex; flex-direction: column; gap: 30px">
 <div style="display: flex; justify-content: space-between; align-items: flex-end">
 <h2 style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -.01em">One fee cycle. Fully covered.</h2>
 <span style="font-size: 16px; color: #5A6285">Set up once, run all year</span>
@@ -263,7 +273,6 @@ a{color:#3E54CE}a:hover{color:#11142C}
 </div>
 
 </div>
-
 
 <div id="rapid" style="width: 1280px; height: 2040px; overflow: hidden; display: flex; flex-direction: column; font-family: 'DM Sans', system-ui, sans-serif; color: #11142C; background: #FFFFFF">
 
@@ -451,7 +460,6 @@ a{color:#3E54CE}a:hover{color:#11142C}
 </div>
 
 </div>
-
 
 <div id="emi" style="width: 1280px; height: 1120px; overflow: hidden; display: flex; flex-direction: column; font-family: 'DM Sans', system-ui, sans-serif; color: #11142C; background: #F7EECB">
 
